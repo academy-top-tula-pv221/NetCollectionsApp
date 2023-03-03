@@ -53,7 +53,7 @@ namespace NetCollectionsApp
 
 
             int[] arr2 = array[3..7];
-            int[] arr3 = array[5..];   
+            int[] arr3 = array[5..];
         }
 
         static void CollectionsExample()
