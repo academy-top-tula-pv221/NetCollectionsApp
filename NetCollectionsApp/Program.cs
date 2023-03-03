@@ -35,12 +35,28 @@ namespace NetCollectionsApp
         {
             return $"Title: {Title}, Id: {Id}";
         }
-
-
     }
     internal class Program
     {
         static void Main(string[] args)
+        {
+            int[] array = new int[10];
+            Random rand = new();
+            for(int i = 0; i < array.Length; i++)
+                array[i] = rand.Next(1, 20);
+
+            for (int i = 0; i < array.Length; i++)
+                Console.Write($"{array[i]} ");
+            Console.WriteLine();
+            for (int i = 1; i <= array.Length; i++)
+                Console.Write($"{array[^i]} ");
+
+
+            int[] arr2 = array[3..7];
+            int[] arr3 = array[5..];   
+        }
+
+        static void CollectionsExample()
         {
             ArrayList arr = new ArrayList();
             arr.Add(1);
@@ -62,7 +78,7 @@ namespace NetCollectionsApp
                 new User()
             };
 
-            foreach(var user in users)
+            foreach (var user in users)
                 Console.WriteLine(user);
             Console.WriteLine();
 
@@ -83,6 +99,9 @@ namespace NetCollectionsApp
             foreach (var user in users)
                 Console.WriteLine(user);
             Console.WriteLine();
+
+            users.Sort(new UserAgeComparer());
+            users.Sort((u1, u2) => u1.Age.CompareTo(u2.Age));
 
             Console.WriteLine(users.Contains(new User("Sam", 33)));
 
